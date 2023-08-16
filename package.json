@@ -1,0 +1,19 @@
+{
+  "name": "web-crawling-scraping",
+  "version": "1.0.0",
+  "description": "A web crawler & scraper, to crawl & scrap websites for relevant sites & data...",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "ts-node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}
