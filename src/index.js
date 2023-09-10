@@ -1,63 +1,29 @@
 
-import * as fs from 'fs'
+// imported inbuilt packages...
 
-import Crawler from './crawler.js'
+import * as fs from 'fs'
 
 import { promises as fsPromises } from 'fs'
 
+// user defined functions...
 
-// function to access prerequisites/horizon.json & store the found urls...
+import BaseUrl from './base-url.js'
 
-const storedUrls = JSON.parse(fs.readFileSync('prerequisites/urls.json', 'utf-8')).urls
+import Crawler from './crawler.js'
 
-function getBaseUrl(url) {
-    
-    const delimiter = '/';
-    
-    const occurrenceToSplit = 3;
-    
-    const parts = url.split(delimiter);
+import StoreLocal from './store-local.js'
 
-    const baseUrl = parts.slice(0, occurrenceToSplit);
-
-    return baseUrl.join(delimiter)
-}
-
-
-// function to access prerequisites/horizon.json & store the found urls...
+// file path to access horizon.json file...
 
 const filePath = 'prerequisites/horizon.json'
 
-async function storeUrl(urls) {
+// fetching the initial urls to proceed...
 
-    try {
-
-        const data = await fsPromises.readFile(filePath, 'utf8')
-    
-        const jsonData = JSON.parse(data)
-
-        jsonData.seeds.push(...urls)
-
-        const updatedJsonData = JSON.stringify(jsonData, null, 2)
-        
-        await fsPromises.writeFile(filePath, updatedJsonData, 'utf8')
-
-        console.log('\n' + urls.length + ' Urls stored successfully !!!\n');
-
-    } catch (err) {
-
-        console.error('Error : ', err);
-
-    }
-
-}
-
+const storedUrls = JSON.parse(fs.readFileSync('prerequisites/urls.json', 'utf-8')).urls
 
 // start of the application...
 
 async function main() {
-    
-    console.log("\nStarting Server...")
 
     // emptying seeds of old urls...
 
@@ -71,13 +37,11 @@ async function main() {
 
     await fsPromises.writeFile(filePath, updatedExistingData, 'utf8')
 
-    console.log('\nSeeds Emptied !!!');
-    
-    console.log("\nStarting with fetching urls...\n")
+    console.log('\nCrawling started...\n');
 
     // function to fetch base url of the link from prerequistes/urls.json file for links with no base url...
 
-    const baseUrl = getBaseUrl(storedUrls[0])
+    const baseUrl = BaseUrl(storedUrls[0])
     
     // calling crawler function...
     
@@ -85,10 +49,9 @@ async function main() {
 
     // storing the found urls to prerequistes/horizon.json file for data extraction...
 
-    await storeUrl(urls)
+    await StoreLocal(urls)
 
 }
-
 
 main()
 

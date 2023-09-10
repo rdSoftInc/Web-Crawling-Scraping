@@ -1,7 +1,11 @@
 
+// imported npm packages...
+
 import fetch from 'node-fetch'
 
 import { load } from 'cheerio'
+
+// initializing variables
 
 let i = 0
 
@@ -33,14 +37,14 @@ async function processLinks(baseUrl, links) {
 
 const Crawler = async (baseUrl, url) => {
 
-    if (seenUrls[url]) {
+    if (seenUrls[url]) { 
         
         return
 
     }
 
     if (!url.includes('events')) {
-        
+
         return
 
     }
