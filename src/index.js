@@ -25,18 +25,6 @@ const storedUrls = JSON.parse(fs.readFileSync('prerequisites/urls.json', 'utf-8'
 
 async function main() {
 
-    // emptying seeds of old urls...
-
-    const existingData = await fsPromises.readFile(filePath, 'utf8')
-    
-    const existingJsonData = JSON.parse(existingData)
-
-    existingJsonData.seeds = []
-
-    const updatedExistingData = JSON.stringify(existingJsonData, null, 2)
-
-    await fsPromises.writeFile(filePath, updatedExistingData, 'utf8')
-
     console.log('\nCrawling started...\n');
 
     // function to fetch base url of the link from prerequistes/urls.json file for links with no base url...

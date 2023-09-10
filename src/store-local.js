@@ -6,6 +6,18 @@ import { promises as fsPromises } from 'fs'
 
 const filePath = 'prerequisites/horizon.json'
 
+// function to remove duplicate urls
+
+function mergeUrls(arrOne, arrTwo) {
+
+    const mergedUrls = arrOne.concat(arrTwo)
+
+    return Array.from(new Set(mergedUrls))
+
+}
+
+// function to store urls in prerequisites/horizon.json file
+
 async function StoreLocal(urls) {
 
     try {
@@ -14,13 +26,13 @@ async function StoreLocal(urls) {
     
         const jsonData = JSON.parse(data)
 
-        if (urls !== undefined) jsonData.seeds.push(...urls)
-
+        jsonData.seeds = mergeUrls(jsonData.seeds, urls)
+        
         const updatedJsonData = JSON.stringify(jsonData, null, 2)
         
         await fsPromises.writeFile(filePath, updatedJsonData, 'utf8')
 
-        console.log('\n' + (urls !== undefined ? urls.length + ' Urls stored successfully !!!\n' : 'No urls found !!!\n'));
+        console.log('\nUrls stored successfully !!!\n');
 
     } catch (err) {
 
