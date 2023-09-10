@@ -24,10 +24,14 @@ node ./src/index.js
 
 ##### Created a js data model to capture enough data for initial stage. 
 
-### Task 4-A : Build a web scraper to scrape data from the urls obtained from the web crawler. 🟧 - Robin
+### Task 4 : Build a web scraper to scrape data from the urls obtained from the web crawler. 🟧 - Robin
 
-### Task 4-B : Create a function to connect to a firebase database, data validation & storing of data in the firebase. 🟧 - Giyosiddin
+### Task 5 : Create a function to connect to a firebase database & data validation 🟧 - Giyosiddin
 
-### Task 4-C : Edit store-local.js function to make sure unique & only new urls are stored in the horizon.json file. ✅ - Rolstan
+### Task 6 : Connect the function of scraping data & data validation to store data in the firebase database - 🔲 - Robin & Giyosiddin 
 
-### Task 5 : Crawl all the urls provided in urls.json file as a base url, so the above tasks can be performed for each base url. 🔲 - Yet to be assigned
+### Task 7 : Edit store-local.js function to make sure unique & only new urls are stored in the horizon.json file. ✅ - Rolstan
+
+### Task 8 : Crawl all the urls provided in urls.json file as a base url, so the above tasks can be performed for each base url. ✅ - Rolstan
+
+### Task 9 : Implement depth limit search for urls ✅ - Rolstan

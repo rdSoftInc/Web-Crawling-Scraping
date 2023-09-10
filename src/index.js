@@ -3,8 +3,6 @@
 
 import * as fs from 'fs'
 
-import { promises as fsPromises } from 'fs'
-
 // user defined functions...
 
 import BaseUrl from './base-url.js'
@@ -27,18 +25,30 @@ async function main() {
 
     console.log('\nCrawling started...\n');
 
-    // function to fetch base url of the link from prerequistes/urls.json file for links with no base url...
+    for (const url of storedUrls) {
 
-    const baseUrl = BaseUrl(storedUrls[0])
-    
-    // calling crawler function...
-    
-    const urls = await Crawler(baseUrl, storedUrls[0])
+        // function to fetch base url of the link from prerequistes/urls.json file for links with no base url...
 
-    // storing the found urls to prerequistes/horizon.json file for data extraction...
+        const baseUrl = BaseUrl(url);
 
-    await StoreLocal(urls)
+        try {
 
+            // calling crawler function...
+
+            const urls = await Crawler(baseUrl, url, 0);
+
+            // storing the found urls to prerequistes/horizon.json file for data extraction...
+
+            await StoreLocal(urls);           
+
+        } catch (e) {
+
+            console.error('Failed to crawl ' + e);
+
+        }
+    }
+
+    console.log('Crawling finished!\n');
 }
 
 main()

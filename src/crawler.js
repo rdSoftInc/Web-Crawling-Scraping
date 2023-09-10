@@ -13,19 +13,21 @@ const seenUrls = {}
 
 const urls = []
 
+const maxDepth = 1
+
 // function to find sublinks of links found
 
-async function processLinks(baseUrl, links) {
+async function processLinks(baseUrl, links, depth) {
 
     for (const link of links) {
 
-        if (link.startsWith('/') && link.includes('/events/') && !link.includes('archive') && !link.includes('gallery') && link.length > 1) {
+        if (link.startsWith('/') && link.length > 1) {
 
-            await Crawler(baseUrl, baseUrl + link)
+            await Crawler(baseUrl, baseUrl + link, depth + 1)
 
         } else if (link.includes('http') && link.includes('/events/') && !link.includes('archive') && !link.includes('gallery')) {
 
-            await Crawler(baseUrl, link)
+            await Crawler(baseUrl, link, depth + 1)
 
         }
 
@@ -35,7 +37,11 @@ async function processLinks(baseUrl, links) {
 
 // web crawler function 
 
-const Crawler = async (baseUrl, url) => {
+const Crawler = async (baseUrl, url, depth = 0) => {
+
+    if (!url.includes(baseUrl) || depth > maxDepth) {
+        return;
+    }
 
     if (seenUrls[url]) { 
         
@@ -43,13 +49,19 @@ const Crawler = async (baseUrl, url) => {
 
     }
 
-    if (!url.includes('events')) {
+    if (!url.includes('event')) {
 
         return
 
     }
 
-    console.log("Crawling... " + url)
+    if (url.includes('archive') || url.includes('gallery') || url.includes('kategorie') || url.includes('bremen') || url.includes('dresden') || url.includes('hamburg') || url.includes('leipzig') || url.includes('dusseldorf') || url.includes('erfurt') || url.includes('frankfurt') || url.includes('hanover') || url.includes('keel') || url.includes('cologne') || url.includes('magdeburg') || url.includes('mainz') || url.includes('munich') || url.includes('potsdam') || url.includes('rostock') || url.includes('saarbrücken') || url.includes('stuttgart')) {
+
+        return
+
+    }
+
+    console.log(`Crawling depth ${depth}... ${url}`);
 
     urls.push(url)
 
@@ -67,7 +79,7 @@ const Crawler = async (baseUrl, url) => {
             .map((i, link) => link.attribs.href)
             .get()
         
-        await processLinks(baseUrl, links)
+        await processLinks(baseUrl, links, 0)
         
         return urls
 
