@@ -28,6 +28,6 @@ node ./src/index.js
 
 ### Task 4-B : Create a function to connect to a firebase database, data validation & storing of data in the firebase. 🟧 - Giyosiddin
 
-### Task 4-C : Edit store-local.js function to make sure unique urls are stored in the horizon.json file. ✅ - Rolstan
+### Task 4-C : Edit store-local.js function to make sure unique & only new urls are stored in the horizon.json file. ✅ - Rolstan
 
 ### Task 5 : Crawl all the urls provided in urls.json file as a base url, so the above tasks can be performed for each base url. 🔲 - Yet to be assigned
