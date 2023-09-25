@@ -24,9 +24,9 @@ Task 3 : Create data model to support the required data for the base urls. ✅ -
 
 Created a js data model to capture enough data for initial stage. 
 
-Task 4 : Build a web scraper to scrape data from the urls obtained from the web crawler. 🟧 - Robin
+Task 4 : Build a web scraper to scrape data from the urls obtained from the web crawler. ✅ - Rolstan & Robin
 
-Task 5 : Create a function to connect to a firebase database & data validation 🟧 - Giyosiddin
+Task 5 : Create a function to connect to a firebase database & data validation ✅ - Giyosiddin
 
 Task 6 : Connect the function of scraping data & data validation to store data in the firebase database - 🔲 - Robin & Giyosiddin 
 
@@ -35,4 +35,6 @@ Task 7 : Edit store-local.js function to make sure unique & only new urls are st
 Task 8 : Crawl all the urls provided in urls.json file as a base url, so the above tasks can be performed for each base url. ✅ - Rolstan
 
 Task 9 : Implement depth limit search for urls ✅ - Rolstan
+
+Task 10 : Modify Scrapper.js or Create a script just to upload the events.json data to db 🟧 - Giyosiddin & Robin
 
