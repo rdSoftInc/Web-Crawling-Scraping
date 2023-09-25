@@ -9,11 +9,7 @@ import BaseUrl from './base-url.js'
 
 import Crawler from './crawler.js'
 
-import StoreLocal from './store-local.js'
-
-// file path to access horizon.json file...
-
-const filePath = 'prerequisites/horizon.json'
+import StoreUrlsLocal from './store-urls-local.js'
 
 // fetching the initial urls to proceed...
 
@@ -39,7 +35,9 @@ async function main() {
 
             // storing the found urls to prerequistes/horizon.json file for data extraction...
 
-            await StoreLocal(urls);           
+            await StoreUrlsLocal(urls);           
+
+            
 
         } catch (e) {
 

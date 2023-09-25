@@ -1,14 +1,12 @@
 const eventModel = {
   id: "",
   title: "",
+  date: "",
   description: "",
   street: "",
-  pincode: "",
+  postalCode: "",
   city: "",
-  admission: false, // is it paid or free
-  amount: undefined, // optional but if paid
-  date: undefined, // optional hence undefined
-  endDate: undefined, // optional hence undefined
+  fee: ""
 }
 
 export default eventModel;

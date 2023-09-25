@@ -63,7 +63,9 @@ const Crawler = async (baseUrl, url, depth = 0) => {
 
     console.log(`Crawling depth ${depth}... ${url}`);
 
-    urls.push(url)
+    if (url !== null) {
+        urls.push(url)
+    }
 
     seenUrls[url] = true
 

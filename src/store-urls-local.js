@@ -18,7 +18,7 @@ function mergeUrls(arrOne, arrTwo) {
 
 // function to store urls in prerequisites/horizon.json file
 
-async function StoreLocal(urls) {
+async function StoreUrlsLocal(urls) {
 
     try {
 
@@ -43,4 +43,4 @@ async function StoreLocal(urls) {
 }
 
 
-export default StoreLocal
+export default StoreUrlsLocal

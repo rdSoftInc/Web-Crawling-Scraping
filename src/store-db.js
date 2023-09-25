@@ -1,6 +1,7 @@
-import FirebaseDB from "./firebaseConfig.js";
+import FirebaseDB from "./firebase-config.js";
  
-import { doc, getDoc, setDoc,updateDoc } from "firebase/firestore"; 
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore"; 
+
 export async function storeData(data, collectionName,url) {
     if(checkExist(collectionName,url)){
         await updateDoc(doc(FirebaseDB, collectionName, url), data
@@ -20,19 +21,17 @@ export async function getData(collectionName,url){
         console.log("Document data:", docSnap.data());
         return docSnap.data()
       } else {
-        // docSnap.data() will be undefined in this case
         console.log("No such document!");
       };
 }
 
-export async function checkExist(collectionName,url){``
+export async function checkExist(collectionName,url){
     const collectionSnapshot = doc(FirebaseDB, collectionName, url);
     const docSnap = await getDoc(collectionSnapshot);
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
         return true
       } else {
-        // docSnap.data() will be undefined in this case
         console.log("No such document!");
         return false
       };
