@@ -9,6 +9,7 @@ import * as fs from 'fs'
 import puppeteer from 'puppeteer'
 
 import StoreDataLocal from './store-data-local.js'
+import { storeData } from './store.js'
 
 // file path to access horizon.json file...
 
@@ -17,6 +18,8 @@ let urls = JSON.parse(fs.readFileSync('prerequisites/horizon.json', 'utf-8')).se
 // array to store temporarily
 
 let data = []
+
+const collectionName = "WEB"
 
 // function to fetch data from each url
 
@@ -97,7 +100,7 @@ const Scraper = async (url, browser) => {
         if (pageData) {
 
             data.push(pageData)
-
+            storeData(pageData,collectionName,url)
             console.log(`Scraped... ${url}`);
 
         }
