@@ -1,12 +1,13 @@
 const eventModel = {
   id: "",
   title: "",
-  date: "",
+  dateText: "",
   description: "",
   street: "",
   postalCode: "",
   city: "",
-  fee: ""
+  fee: "",
+  url: ""
 }
 
 export default eventModel;

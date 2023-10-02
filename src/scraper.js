@@ -9,7 +9,6 @@ import * as fs from 'fs'
 import puppeteer from 'puppeteer'
 
 import StoreDataLocal from './store-data-local.js'
-import { storeData } from './store.js'
 
 // file path to access horizon.json file...
 
@@ -18,8 +17,6 @@ let urls = JSON.parse(fs.readFileSync('prerequisites/horizon.json', 'utf-8')).se
 // array to store temporarily
 
 let data = []
-
-const collectionName = "WEB"
 
 // function to fetch data from each url
 
@@ -51,7 +48,7 @@ const Scraper = async (url, browser) => {
 
             title = (Array.from(document.querySelectorAll(".article__title")))[0]?.innerText
 
-            date = (Array.from(document.querySelectorAll(".article__subtitle")))[0]?.innerText
+            dateText = (Array.from(document.querySelectorAll(".article__subtitle")))[0]?.innerText
 
             description = (Array.from(document.querySelectorAll(".article__introtext")))[0]?.innerText
 
@@ -60,6 +57,8 @@ const Scraper = async (url, browser) => {
             postalCode = (Array.from(document.querySelectorAll(".postal-code")))[0]?.innerText
 
             city = (Array.from(document.querySelectorAll(".locality")))[0]?.innerText
+
+            url = this.url
 
             const fetchFee = async () => {
 
@@ -83,9 +82,9 @@ const Scraper = async (url, browser) => {
             
             const fee = await fetchFee();
 
-            if (title && date && description && street && postalCode && city) {
+            if (title && dateText && description && street && postalCode && city) {
 
-                return { title, date, description, street, city, postalCode, fee } 
+                return { title, dateText, description, street, city, postalCode, fee, url } 
 
             } else {
 
@@ -100,7 +99,7 @@ const Scraper = async (url, browser) => {
         if (pageData) {
 
             data.push(pageData)
-            storeData(pageData,collectionName,url)
+            
             console.log(`Scraped... ${url}`);
 
         }
