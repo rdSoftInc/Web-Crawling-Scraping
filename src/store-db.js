@@ -3,6 +3,7 @@ import FirebaseDB from "./firebase-config.js";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore"; 
 
 export async function storeData(data, collectionName,url) {
+    url=url.replace("https://","")
     if(checkExist(collectionName,url)){
         await updateDoc(doc(FirebaseDB, collectionName, url), data
         );
