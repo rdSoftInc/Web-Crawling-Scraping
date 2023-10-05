@@ -6,18 +6,18 @@ function encodeURLtoBase64(url) {
 }
 
 export async function storeData(data, collectionName, url) {
-    const encodedUrl = encodeURLtoBase64(url);
-    if(await checkExist(collectionName, encodedUrl)){
-        await updateDoc(doc(FirebaseDB, collectionName, encodedUrl), data);
+    const changedUrl = url.replace("https://","")
+    if(await checkExist(collectionName, changedUrl)){
+        await updateDoc(doc(FirebaseDB, collectionName, changedUrl), data);
     } else {
-        await setDoc(doc(FirebaseDB, collectionName, encodedUrl), data);
+        await setDoc(doc(FirebaseDB, collectionName, changedUrl), data);
     }
     console.log("data stored")
 }
 
-export async function getData(collectionName, url) {
-    const encodedUrl = encodeURLtoBase64(url);
-    const collectionSnapshot = doc(FirebaseDB, collectionName, encodedUrl);
+export async function getData(collectionName, uchangedUrlrl) {
+    const changedUrl = url.replace("https://","")
+    const collectionSnapshot = doc(FirebaseDB, collectionName, changedUrl);
     const docSnap = await getDoc(collectionSnapshot);
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
@@ -26,8 +26,8 @@ export async function getData(collectionName, url) {
 }
 
 export async function checkExist(collectionName, url) {
-    const encodedUrl = encodeURLtoBase64(url);
-    const collectionSnapshot = doc(FirebaseDB, collectionName, encodedUrl);
+    const changedUrl = url.replace("https://","")
+    const collectionSnapshot = doc(FirebaseDB, collectionName, changedUrl);
     const docSnap = await getDoc(collectionSnapshot);
     if (docSnap.exists()) {
         console.log("Document exists:", docSnap.data());
