@@ -1,5 +1,5 @@
 
-// function to get the base url of the url...
+// function to get the base url of the url, self built...
 
 function BaseUrl(url) {
     
