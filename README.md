@@ -36,5 +36,5 @@ Task 8 : Crawl all the urls provided in urls.json file as a base url, so the abo
 
 Task 9 : Implement depth limit search for urls ✅ - Rolstan
 
-Task 10 : Modify Scrapper.js or Create a script just to upload the events.json data to db 🟧 - Giyosiddin & Robin
+Task 10 : Modify Scrapper.js or Create a script just to upload the events.json data to db ✅ - Giyosiddin & Robin
 
