@@ -13,8 +13,6 @@ run **npm install** command in the project folder terminal
 
 ## Tasks - ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
 
-#
-
 ✅ Task 1  - **Rolstan** : Build a basic node js server & implement a web crawler function to find links & sub-links for a given url & store it in a json file  
 
 ✅ Task 2  - **Robin & Giyosiddin** : Analyze the urls stored in prerequisites/horizon.json file & create pre-data fetch filter for processing required information. 
