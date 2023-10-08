@@ -3,17 +3,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC3qizv244bfEjN6b0tqsUB_m3UGfrd7MY",
-  authDomain: "codebox-5ef5b.firebaseapp.com",
-  databaseURL: "https://codebox-5ef5b.firebaseio.com",
-  projectId: "codebox-5ef5b",
-  storageBucket: "codebox-5ef5b.appspot.com",
-  messagingSenderId: "227682819198",
-  appId: "1:227682819198:web:d645da5ee5504709c08c2f",
-  measurementId: "G-5R78N5DVLE"
+  apiKey: "AIzaSyCG1M2gxLdXsw9Zu8qed6ZLmhfLiVLdpFA",
+  authDomain: "web-crawling-scrapping.firebaseapp.com",
+  projectId: "web-crawling-scrapping",
+  storageBucket: "web-crawling-scrapping.appspot.com",
+  messagingSenderId: "435166016600",
+  appId: "1:435166016600:web:7d4eea871c5d946063062d",
+  measurementId: "G-JGP75JV45B"
 };
 
-const Firebase = initializeApp(firebaseConfig);
-const FirebaseDB = getFirestore(Firebase);
-
-export default FirebaseDB;
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
