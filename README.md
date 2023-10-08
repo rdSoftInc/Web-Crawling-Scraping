@@ -2,41 +2,40 @@
 
 A web crawler & scraper, to crawl & scrap websites for relevant sites & data...
 
-# Required Packages
+## Required Packages
 
-run "npm install" cmd in the terminal
+run **npm install** command in the project folder terminal
 
-# Command to run 
+## Command to run 
 
-node ./src/index.js
+**npm start**
+
 
 Tasks - ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
 
 #
 
-Task 1 : Build a basic node js server & implement a web crawler function to find links & sub-links for a given url & store it in a json file ✅ - Rolstan
+✅ Task 1  - **Rolstan** : Build a basic node js server & implement a web crawler function to find links & sub-links for a given url & store it in a json file  
 
-Run the script with cmd as "node src/index.js" & wait for it to finish, once execution completes, find the urls stored in prerequisites/horizon.json file for further analysis.
+✅ Task 2  - **Robin & Giyosiddin** : Analyze the urls stored in prerequisites/horizon.json file & create pre-data fetch filter for processing required information. 
 
-Task 2 : Analyze the urls stored in prerequisites/horizon.json file & create pre-data fetch filter for processing required information. ✅ - Robin & Giyosiddin 
+✅ Task 3  - **Robin & Rolstan** : Create data model to support the required data for the base urls.
 
-Successfully identified the non essential urls & the pre-data-fetch filter parameters.
+✅ Task 4  - **Rolstan & Robin** : Build a web scraper to scrape data from the urls obtained from the web crawler.
 
-Task 3 : Create data model to support the required data for the base urls. ✅ - Robin & Rolstan
+✅ Task 5  - **Giyosiddin** : Create a function to connect to a firebase database & data validation.
 
-Created a js data model to capture enough data for initial stage. 
+✅ Task 6  - **Robin & Giyosiddin** : Connect the function of scraping data & data validation to store data in the firebase database.
 
-Task 4 : Build a web scraper to scrape data from the urls obtained from the web crawler. ✅ - Rolstan & Robin
+✅ Task 7  - **Rolstan** : Edit store-local.js function to make sure unique & only new urls are stored in the horizon.json file.
 
-Task 5 : Create a function to connect to a firebase database & data validation ✅ - Giyosiddin
+✅ Task 8  - **Rolstan** : Crawl all the urls provided in urls.json file as a base url, so the above tasks can be performed for each base url.
 
-Task 6 : Connect the function of scraping data & data validation to store data in the firebase database - ✅ - Robin & Giyosiddin 
+✅ Task 9  - **Rolstan** : Implement depth limit search for urls.
 
-Task 7 : Edit store-local.js function to make sure unique & only new urls are stored in the horizon.json file. ✅ - Rolstan
+✅ Task 10 - **Giyosiddin & Robin** : Modify Scrapper.js or Create a script just to upload the events.json data to db.
 
-Task 8 : Crawl all the urls provided in urls.json file as a base url, so the above tasks can be performed for each base url. ✅ - Rolstan
+✅ Task 11 - **Robin & Giyosiddin** : Report creation of the workflow.
 
-Task 9 : Implement depth limit search for urls ✅ - Rolstan
-
-Task 10 : Modify Scrapper.js or Create a script just to upload the events.json data to db ✅ - Giyosiddin & Robin
+✅ Task 12 - **Giyosiddin** : Code Commenting & Optimization.
 
