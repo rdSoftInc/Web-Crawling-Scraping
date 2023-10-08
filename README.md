@@ -10,7 +10,9 @@ run "npm install" cmd in the terminal
 
 node ./src/index.js
 
-# Tasks - ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
+Tasks - ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
+
+#
 
 Task 1 : Build a basic node js server & implement a web crawler function to find links & sub-links for a given url & store it in a json file ✅ - Rolstan
 
