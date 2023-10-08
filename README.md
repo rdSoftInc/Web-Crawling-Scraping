@@ -10,7 +10,7 @@ run "npm install" cmd in the terminal
 
 node ./src/index.js
 
-# Tasks - ### ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
+# Tasks - ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
 
 Task 1 : Build a basic node js server & implement a web crawler function to find links & sub-links for a given url & store it in a json file ✅ - Rolstan
 
@@ -28,7 +28,7 @@ Task 4 : Build a web scraper to scrape data from the urls obtained from the web 
 
 Task 5 : Create a function to connect to a firebase database & data validation ✅ - Giyosiddin
 
-Task 6 : Connect the function of scraping data & data validation to store data in the firebase database - 🔲 - Robin & Giyosiddin 
+Task 6 : Connect the function of scraping data & data validation to store data in the firebase database - ✅ - Robin & Giyosiddin 
 
 Task 7 : Edit store-local.js function to make sure unique & only new urls are stored in the horizon.json file. ✅ - Rolstan
 
