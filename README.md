@@ -11,7 +11,7 @@ run **npm install** command in the project folder terminal
 **npm start**
 
 
-Tasks - ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
+## Tasks - ✅ - Completed | 🟧 - In Progress | 🔲 - Not Started 
 
 #
 
