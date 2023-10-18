@@ -32,6 +32,7 @@ async function main() {
             console.error('Failed to crawl ' + e);
 
         }
+    
     }
 
     console.log('Crawling finished!\n');

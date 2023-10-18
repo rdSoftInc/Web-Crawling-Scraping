@@ -9,13 +9,15 @@ import { storeData } from "./store-db.js";
 
 async function processLinks(urls) {
 
-    const browser = await puppeteer.launch({ headless: "new", protocolTimeout: 1 * 24 * 60 * 60 * 1000 });
+    const browser = await puppeteer.launch({ headless: 'true' });
     
     const data = []; 
 
+    const page = await browser.newPage();
+
     for (const url of urls) {
 
-        const scrapedData = await Scraper(url, browser);
+        const scrapedData = await Scraper(url, page);
 
         if (scrapedData) {
 
@@ -31,13 +33,19 @@ async function processLinks(urls) {
 
 }
 
-const Scraper = async (url, browser) => {
+const Scraper = async (url, page) => {
 
     try {
 
-        const page = await browser.newPage({ timeout: 5 * 60 * 1000 });
+        if (!url) {
 
-        await page.goto(url, { timeout: 5 * 60 * 1000 })
+            console.error('Invalid URL ...', url);
+
+            return null;
+
+        }
+
+        await page.goto(url, { timeout: 60 * 1000 })
 
         const pageData = await page.evaluate(async (url) => {
 
@@ -80,13 +88,11 @@ const Scraper = async (url, browser) => {
 
         if (pageData) {
 
-            await storeData(pageData);
+            await storeData(pageData)
 
             return pageData;
 
         }
-
-        await page.close();
 
     } catch (e) {
 

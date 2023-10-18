@@ -39,7 +39,7 @@ async function processLinks(baseUrl, links, depth) {
 
 const Crawler = async (baseUrl, url, depth = 0) => {
 
-    if (!url.includes(baseUrl) || depth > maxDepth) {
+    if (!url || !url.includes(baseUrl) || depth > maxDepth) {
         return;
     }
 
@@ -55,7 +55,7 @@ const Crawler = async (baseUrl, url, depth = 0) => {
 
     }
 
-    if (url.includes('archive') || url.includes('gallery') || url.includes('kategorie') || url.includes('bremen') || url.includes('dresden') || url.includes('hamburg') || url.includes('leipzig') || url.includes('dusseldorf') || url.includes('erfurt') || url.includes('frankfurt') || url.includes('hanover') || url.includes('keel') || url.includes('cologne') || url.includes('magdeburg') || url.includes('mainz') || url.includes('munich') || url.includes('potsdam') || url.includes('rostock') || url.includes('saarbrücken') || url.includes('stuttgart')) {
+    if (url.includes('archive') || url.includes('gallery') || url.includes('kategorie') || !url.includes('berlin')) {
 
         return
 
@@ -64,7 +64,9 @@ const Crawler = async (baseUrl, url, depth = 0) => {
     console.log(`Crawling depth ${depth}... ${url}`);
 
     if (url !== null) {
+
         urls.push(url)
+
     }
 
     seenUrls[url] = true
