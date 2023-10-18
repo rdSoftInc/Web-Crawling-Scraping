@@ -1,41 +1,41 @@
-// imported inbuilt packages...
+import { promises as fsPromises } from 'fs';
 
-import { promises as fsPromises } from 'fs'
+const filePath = 'prerequisites/events.json';
 
-// function to access prerequisites/horizon.json & store the found urls...
-
-const filePath = 'prerequisites/events.json'
-
-// function to remove duplicate data
+function isObjectEqual(obj1, obj2) {
+    return JSON.stringify(obj1) === JSON.stringify(obj2);
+}
 
 function mergeData(arrOne, arrTwo) {
 
-    const uniqueUrls = new Set();
+    const uniqueData = [];
+    
+    for (const item of arrTwo) {
 
-    arrOne.forEach(item => uniqueUrls.add(item.url));
-    arrTwo.forEach(item => uniqueUrls.add(item.url));
+        if (!arrOne.some(existingItem => isObjectEqual(existingItem, item))) {
 
-    const mergedData = Array.from(uniqueUrls);
+            uniqueData.push(item);
 
-    return mergedData;
+        }
 
+    }
+    
+    return arrOne.concat(uniqueData);
 }
 
-// function to store urls in prerequisites/events.json file
-
-async function storeDataLocal(urls) {
+async function storeDataLocal(data) {
 
     try {
 
-        const data = await fsPromises.readFile(filePath, 'utf8')
-    
-        const jsonData = JSON.parse(data)
+        const existingData = await fsPromises.readFile(filePath, 'utf8');
 
-        jsonData.data = mergeData(jsonData.data, urls)
+        const jsonData = JSON.parse(existingData);
+
+        jsonData.data = mergeData(jsonData.data, data);
         
-        const updatedJsonData = JSON.stringify(jsonData, null, 2)
+        const updatedJsonData = JSON.stringify(jsonData, null, 2);
         
-        await fsPromises.writeFile(filePath, updatedJsonData, 'utf8')
+        await fsPromises.writeFile(filePath, updatedJsonData, 'utf8');
 
         console.log('\nData stored successfully !!!\n');
 
@@ -44,8 +44,6 @@ async function storeDataLocal(urls) {
         console.error('Error : ', err);
 
     }
-
 }
 
-
-export default storeDataLocal
+export default storeDataLocal;
