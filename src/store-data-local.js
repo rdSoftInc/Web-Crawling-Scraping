@@ -10,15 +10,20 @@ const filePath = 'prerequisites/events.json'
 
 function mergeData(arrOne, arrTwo) {
 
-    const mergedData = arrOne.concat(arrTwo)
+    const uniqueUrls = new Set();
 
-    return Array.from(new Set(mergedData))
+    arrOne.forEach(item => uniqueUrls.add(item.url));
+    arrTwo.forEach(item => uniqueUrls.add(item.url));
+
+    const mergedData = Array.from(uniqueUrls);
+
+    return mergedData;
 
 }
 
 // function to store urls in prerequisites/events.json file
 
-async function StoreDataLocal(urls) {
+async function storeDataLocal(urls) {
 
     try {
 
@@ -43,4 +48,4 @@ async function StoreDataLocal(urls) {
 }
 
 
-export default StoreDataLocal
+export default storeDataLocal

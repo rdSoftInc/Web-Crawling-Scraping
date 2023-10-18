@@ -9,7 +9,7 @@ import BaseUrl from './base-url.js';
 import Crawler from './crawler.js';
 import StoreUrlsLocal from './store-urls-local.js';
 import processLinks from './scrapper.js';
-import StoreDataLocal from './store-data-local.js';
+import storeDataLocal from './store-data-local.js';
 
 async function main() {
 
@@ -43,9 +43,10 @@ async function main() {
 
     const scrapedData = await processLinks(horizonUrls); 
 
-    await StoreDataLocal(scrapedData);
+    await storeDataLocal(scrapedData);
 
     console.log('Scrapping finished!\n');
+
 }
 
 main();
